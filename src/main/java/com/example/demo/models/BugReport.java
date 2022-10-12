@@ -27,4 +27,8 @@ public class BugReport {
     @JsonManagedReference
     private List<Comment> comments = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "bugReport")
+    @JsonManagedReference
+    private List<Fixxx> fixxxes = new ArrayList<>();
+
 }
