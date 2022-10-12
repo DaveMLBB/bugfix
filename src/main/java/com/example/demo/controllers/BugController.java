@@ -20,19 +20,15 @@ public class BugController {
 
     @PostMapping("/scara")
     public ResponseEntity<ApiResponse> newReport(@RequestBody BugReportDTO bugReportDTO){
-
         ApiResponse apiResponse = bugService.transfer(bugReportDTO);
-
         return new ResponseEntity<ApiResponse>(apiResponse,HttpStatus.CREATED);
-
     }
 
     @GetMapping("/scara")
     public ResponseEntity<List<BugReportDTO>> getReports(){
-
         List<BugReportDTO> bugReportList = bugService.getBugReportList();
-
-
         return new ResponseEntity<List<BugReportDTO>>(bugReportList,HttpStatus.OK);
     }
+
+
 }

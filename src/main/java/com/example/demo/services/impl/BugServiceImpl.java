@@ -6,6 +6,7 @@ import com.example.demo.models.BugReport;
 import com.example.demo.repositories.BugRepository;
 import com.example.demo.services.BugService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,7 @@ public class BugServiceImpl implements BugService {
 
         ApiResponse apiResponse = new ApiResponse(
                 true,
-                "success",
+                "bug has been posted",
                 bugReport
         );
 
@@ -39,8 +40,10 @@ public class BugServiceImpl implements BugService {
     public List<BugReportDTO> getBugReportList() {
 
         List<BugReport> bugReportList = bugRepository.findAll();
-        List<BugReportDTO> bugReportDTOList = new ArrayList<>();
-        modelMapper.map(bugReportList,bugReportDTOList);
+        List<BugReportDTO> bugReportDTOList = modelMapper.map(
+                bugReportList, new TypeToken<List<BugReportDTO>>() {}.getType()
+        );
+
         return bugReportDTOList;
 
     }

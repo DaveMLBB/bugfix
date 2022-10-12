@@ -5,13 +5,20 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class ApiResponse {
 
     private Boolean state;
     private String message;
-    private BugReport bugReport;
+    private Object bugReport;
 
+
+    public ApiResponse(Boolean state, String message, Object bugReport) {
+        this.state = state;
+        this.message = message;
+        this.bugReport = bugReport;
+    }
 }

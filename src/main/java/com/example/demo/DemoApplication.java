@@ -14,7 +14,7 @@ public class DemoApplication {
 
 	@Bean
 	public ModelMapper modelMapper(){
-		return this.modelMapper();
+		return new ModelMapper();
 	}
 
 }

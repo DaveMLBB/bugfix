@@ -5,10 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class BugReportDTO {
+@AllArgsConstructor
+public class CommentDto {
 
-    private Long id;
-    private String reportContent;
+    private String comment;
+
 }
