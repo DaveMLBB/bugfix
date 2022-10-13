@@ -3,7 +3,6 @@ package com.example.demo.controllers;
 import com.example.demo.dto.ApiResponse;
 import com.example.demo.dto.GoFixBaby;
 import com.example.demo.filters.AdminInterceptor;
-import com.example.demo.models.Admin;
 import com.example.demo.services.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
