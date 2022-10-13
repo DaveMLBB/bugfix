@@ -13,4 +13,25 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+  mail:
+    from: devtestdevtest828117@tiscali.it
+    host: smtp.tiscali.it
+    port: 465
+    protocol: smtp
+    username: devtestdevtest828117@tiscali.it
+    password: _DkW3bwVqWVh3vG
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            enable: true
+mail:
+ smtp:
+    starttls:
+      enable: false
+key: ciaociao
 

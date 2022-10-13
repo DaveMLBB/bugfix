@@ -27,6 +27,8 @@ public class FixxxServiceImpl implements FixxxService {
         BugReport bugReport = bugRepository.findById(bugId)
                 .orElseThrow(() -> new RuntimeException("bugId not found"));
 
+        if (bugReport.getFixAccepted()) throw new RuntimeException("bug fixed");
+
         Fixxx fixxx = new Fixxx();
         fixxx.setIdeaFix(fixxxDto.getFixxx());
         fixxx.setBugReport(bugReport);

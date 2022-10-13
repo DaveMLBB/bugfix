@@ -3,16 +3,15 @@ package com.example.demo.models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class BugReport {
@@ -21,6 +20,7 @@ public class BugReport {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private Boolean fixAccepted = false;
     private String reportContent;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "bugReport")
@@ -31,4 +31,14 @@ public class BugReport {
     @JsonManagedReference
     private List<Fixxx> fixxxes = new ArrayList<>();
 
+    @Override
+    public String toString() {
+        return "BugReport{" +
+                "id=" + id +
+                ", fixAccepted=" + fixAccepted +
+                ", reportContent='" + reportContent + '\'' +
+                ", comments=" + comments +
+                ", fixxxes=" + fixxxes +
+                '}';
+    }
 }

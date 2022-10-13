@@ -1,14 +1,13 @@
 package com.example.demo.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-@Data
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Fixxx {
@@ -21,9 +20,20 @@ public class Fixxx {
     private Boolean accepted = false;
 
     private Integer goFix = Integer.parseInt("0");
+
     @ManyToOne
     @JoinColumn(name = "BugId",referencedColumnName = "id", nullable = false)
     @JsonBackReference
     private BugReport bugReport= new BugReport();
 
+
+    @Override
+    public String toString() {
+        return "Fixxx{" +
+                "id=" + id +
+                ", ideaFix='" + ideaFix + '\'' +
+                ", accepted=" + accepted +
+                ", goFix=" + goFix +
+                '}';
+    }
 }

@@ -27,6 +27,8 @@ public class CommentServiceImpl implements CommentService {
         BugReport bugReport = bugRepository.findById(bugId)
                 .orElseThrow(() -> new RuntimeException("bugId not found"));
 
+        if (bugReport.getFixAccepted()) throw new RuntimeException("bug fixed");
+
         Comment comment = new Comment();
         comment.setComment(commentDto.getComment());
         comment.setBugReport(bugReport);
